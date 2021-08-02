@@ -1,10 +1,8 @@
 const Header = () => {
   return (
     <div>
-      <a href="#w">Home</a>
-      <br />
-      <a href="#w">New Feed</a>
-      <br />
+      <a href="#w">Home</a> -
+      <a href="#w">New Feed</a> -
       <a href="#w">Messages</a>
     </div>
   );

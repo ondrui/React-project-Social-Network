@@ -1,12 +1,14 @@
-import "./App.css";
-import Technologies from "./Technologies.js"
-import Header from "./Header.js"
+import './App.css';
+import Footer from './Footer';
+import Header from './Header';
+import Technologies from './Technologies';
 
 const App = () => {
   return (
     <>
       <Header />
       <Technologies />
+      <Footer />
     </>
   );
 };
