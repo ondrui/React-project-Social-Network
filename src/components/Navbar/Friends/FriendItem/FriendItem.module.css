@@ -1,0 +1,15 @@
+.item img {
+  width: 40px;
+  border-radius: 50%;
+  background-color: yellow;
+}
+
+.item {
+  text-align: center;
+  margin-top: 10px;
+  min-width: 50px;
+}
+
+.item .name {
+  margin-top: 10px;
+}

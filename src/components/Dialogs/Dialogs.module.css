@@ -1,0 +1,86 @@
+.dialogs {
+  display: grid;
+  grid-template-columns: 3fr 10fr;
+  height: 100%;
+}
+
+.dialogsItems {
+  padding: 10px;
+  background-color: rgb(5, 105, 227);
+}
+
+.dialog {
+  margin: 5px 0;
+
+}
+
+.dialog img {
+  width: 30px;
+  border-radius: 50%;
+  background-color: yellow;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.dialog a{
+  display: block;
+  width: 100%;
+  color: white;
+  text-decoration: none;
+  padding-left: 5px;
+}
+
+
+
+.dialog a.active {
+  color: gold;
+  font-weight: bold;
+}
+
+.messages {
+  background-color: #adbfcc;
+  //background-image: url(./../../pattern.svg);
+  background-repeat: repeat;
+  padding: 10px;
+  max-width: 100%;
+}
+
+.message {
+  color: white;
+}
+
+.own {
+  display: inline-block;
+  color: white;
+  border-radius: 5px;
+  padding: 3px 10px;
+  margin: 5px 0;
+  background-color: rgb(0, 132, 255);
+}
+
+.other {
+  display: inline-block;
+  color: black;
+  border-radius: 5px;
+  padding: 3px 10px;
+  background-color: rgb(241, 241, 241);
+}
+
+.primary {
+  text-align: right;
+}
+
+.textArea {
+  width: 70%;
+  margin-top: 100px;
+}
+
+.textArea textarea {
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+}
+
+.textArea button {
+
+}
