@@ -8,31 +8,15 @@ import Music from "./components/Music/Music";
 import Setting from "./components/Setting/Setting";
 import {Route} from "react-router-dom";
 
-
 const App = (props) => {
-
-  /*let posts = [
-    {id: 1, message: 'Good news!!!', likeCount: 15},
-    {id: 2, message: 'It\'s my first post', likeCount: 27},
-    {id: 3, message: 'Blabla', likeCount: 21},
-    {id: 4, message: 'yo yo yo', likeCount: 10}
-  ]*/
 
   return (
     <div className='app-wrapper'>
       <Header/>
       <Navbar state={props.state.friendsList}/>
       <div className='app-wrapper-content'>
-        {/*<Route path='/dialogs' component={Dialogs}/>*/}
-        {/*<Route path='/profile' component={Profile}/>*/}
-        {/*<Route path='/news' component={News}/>*/}
-        {/*<Route path='/music' component={Music}/>*/}
-        {/*<Route path='/setting' component={Setting}/>*/}
-
         <Route path='/dialogs'
                render={() => <Dialogs
-                 /*dialogs={props.state.dialogsPage.dialogs}
-                 messages={props.state.dialogsPage.messages}*/
                  dialogsPage={props.state.dialogsPage}
                  addMessage={props.addMessage}
                  updateNewMessageText={props.updateNewMessageText}
@@ -40,11 +24,9 @@ const App = (props) => {
         />
         <Route path='/profile'
                render={() => <Profile
-                 // posts={props.state.profilePage.posts}
                  profilePage={props.state.profilePage}
                  addPost={props.addPost}
                  updateNewPostText={props.updateNewPostText}
-                 changePostText={props.changePostText}
                />}
         />
         <Route exact path='/'
@@ -58,7 +40,6 @@ const App = (props) => {
         <Route path='/music' render={() => <Music/>}/>
         <Route path='/setting' render={() => <Setting/>}/>
       </div>
-      {/*<Profile />*/}
     </div>
   );
 };
