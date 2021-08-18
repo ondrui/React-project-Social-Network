@@ -1,23 +1,29 @@
-import React from "react";
+import React from 'react';
 import style from './MyPosts.module.css';
 import Post from './Post/Post';
 
 const MyPosts = (props) => {
-
-  let postsElements = props.posts
-    .map(p => <Post message={p.message} likeCount={p.likeCount}/>);
+  let postsElements = props.posts.map((p) => (
+    <Post message={p.message} likeCount={p.likeCount} />
+  ));
   let newPostElement = React.createRef();
   let addPost = () => {
-    props.addPost();
+    //props.addPost();
+    props.dispatch({
+      type: 'ADD-POST',
+    });
     //очистку поля после отправки переносим в итоге в state.js
-  }
+  };
 
   let onPostChange = (event) => {
     let text = newPostElement.current.value;
-    props.updateNewPostText(text);
-    //props.changePostText.value = event.target.value;
-
-  }
+    //props.updateNewPostText(text);
+    let action = {
+      type: 'UPDATE-NEW-POST-TEXT',
+      newTextPost: text,
+    };
+    props.dispatch(action);
+  };
 
   return (
     <div className={style.postsBlock}>
@@ -35,9 +41,7 @@ const MyPosts = (props) => {
           <button onClick={addPost}>Add post</button>
         </div>
       </div>
-      <div className={style.posts}>
-        {postsElements}
-      </div>
+      <div className={style.posts}>{postsElements}</div>
     </div>
   );
 };
