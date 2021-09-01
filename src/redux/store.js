@@ -1,16 +1,20 @@
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
+import friendsListReducer from "./friendsList-reducer";
+
 let store = {
   _state: {
     profilePage: {
-      newPostText: 'Bla bla bla',
+      newPostText: 'Hi, ',
       posts: [
-        { id: 1, message: 'Good news!!!', likeCount: 15 },
-        { id: 2, message: "It's my first post", likeCount: 27 },
-        { id: 3, message: 'Blabla', likeCount: 21 },
-        { id: 4, message: 'yo yo yo', likeCount: 10 },
+        {id: 1, message: 'Good news!!!', likeCount: 15},
+        {id: 2, message: "It's my first post", likeCount: 27},
+        {id: 3, message: 'Blabla', likeCount: 21},
+        {id: 4, message: 'yo yo yo', likeCount: 10},
       ],
     },
     dialogsPage: {
-      newMessageText: '',
+      newMessageBody: '',
       dialogs: [
         {
           id: 1,
@@ -50,11 +54,11 @@ let store = {
         },
       ],
       messages: [
-        { id: 1, message: 'Hi', owner: 1 },
-        { id: 2, message: 'How are you?', owner: 0 },
-        { id: 3, message: 'Go home!', owner: 1 },
-        { id: 4, message: 'Go', owner: 0 },
-        { id: 5, message: 'Ga ga', owner: 1 },
+        {id: 1, message: 'Hi', owner: 1},
+        {id: 2, message: 'How are you?', owner: 0},
+        {id: 3, message: 'Go home!', owner: 1},
+        {id: 4, message: 'Go', owner: 0},
+        {id: 5, message: 'Ga ga', owner: 1},
       ],
     },
     friendsList: {
@@ -93,33 +97,12 @@ let store = {
 
   dispatch(action) {
     // { type: 'ADD-POST' }
-    if (action.type === 'ADD-POST') {
-      let newPost = {
-        id: this._state.profilePage.posts.length + 1,
-        message: this._state.profilePage.newPostText,
-        likeCount: 1,
-      };
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.dislogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._state.friendsList = friendsListReducer(this._state.friendsList, action);
 
-      this._state.profilePage.posts.push(newPost);
-      this._state.profilePage.newPostText = '';
-      this._callSubscriber(this._state);
-    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-      this._state.profilePage.newPostText = action.newTextPost;
-      this._callSubscriber(this._state);
-    } else if (action.type === 'ADD-MESSAGE') {
-      let newMessage = {
-        id: this._state.dialogsPage.messages.length + 1,
-        message: this._state.dialogsPage.newMessageText,
-        owner: 1,
-      };
+    this._callSubscriber(this._state);
 
-      this._state.dialogsPage.messages.push(newMessage);
-      this._state.dialogsPage.newMessageText = '';
-      this._callSubscriber(this._state);
-    } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
-      this._state.dialogsPage.newMessageText = action.newTextMessage;
-      this._callSubscriber(this._state);
-    }
   },
 };
 

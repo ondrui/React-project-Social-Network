@@ -7,22 +7,13 @@ const MyPosts = (props) => {
     <Post message={p.message} likeCount={p.likeCount} />
   ));
   let newPostElement = React.createRef();
-  let addPost = () => {
-    //props.addPost();
-    props.dispatch({
-      type: 'ADD-POST',
-    });
-    //очистку поля после отправки переносим в итоге в state.js
+  let onAddPost = () => {
+    props.addPost();
   };
 
-  let onPostChange = (event) => {
+  let onPostChange = () => {
     let text = newPostElement.current.value;
-    //props.updateNewPostText(text);
-    let action = {
-      type: 'UPDATE-NEW-POST-TEXT',
-      newTextPost: text,
-    };
-    props.dispatch(action);
+    props.updateNewPostText(text);
   };
 
   return (
@@ -38,7 +29,7 @@ const MyPosts = (props) => {
           />
         </div>
         <div>
-          <button onClick={addPost}>Add post</button>
+          <button onClick={onAddPost}>Add post</button>
         </div>
       </div>
       <div className={style.posts}>{postsElements}</div>

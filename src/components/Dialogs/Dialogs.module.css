@@ -71,6 +71,8 @@
 }
 
 .textArea {
+  display: flex;
+  align-items: center;
   width: 70%;
   margin-top: 100px;
 }
@@ -79,8 +81,15 @@
   width: 100%;
   border-radius: 5px;
   border: none;
+  padding: 5px;
 }
 
 .textArea button {
-
+  display: inline-block;
+  margin-left: 15px;
+  vertical-align: middle;
+  padding: 5px;
+  height: 25px;
+  border-radius: 5px;
+  border: none;
 }
