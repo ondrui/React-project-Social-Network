@@ -7,13 +7,15 @@ import Music from "./components/Music/Music";
 import Setting from "./components/Setting/Setting";
 import {Route} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import store from './redux/store';
+
+let state = store.getState();
 
 const App = (props) => {
-
   return (
     <div className='app-wrapper'>
       <Header/>
-      <Navbar state={props.state.friendsList}/>
+      <Navbar state={state.friendsList}/>
       <div className='app-wrapper-content'>
         <Route path='/dialogs'
                render={() => <DialogsContainer/>}

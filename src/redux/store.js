@@ -109,5 +109,5 @@ let store = {
 export default store;
 
 //чтобы в консоли увидеть текущий state
-window.store = store;
+//window.store = store;
 // store - OOP
