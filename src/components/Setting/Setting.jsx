@@ -1,6 +1,6 @@
-import style from './Setting.module.css'
+//import style from './Setting.module.css'
 
-const Setting = (props) => {
+const Setting = () => {
   return (
     <div>
       Setting
