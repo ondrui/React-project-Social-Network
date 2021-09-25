@@ -1,13 +1,14 @@
-import style from "./Users.module.css";
-import userPhoto from "../../assets/images/user.png";
-import React from "react";
+import style from './Users.module.css';
+import userPhoto from '../../assets/images/user.png';
+import React from 'react';
+import {NavLink} from 'react-router-dom';
 
 let Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
   let pages = [];
-  if (pagesCount > 10) {
-    for (let i = 1; i <= 10; i++) {
+  if (pagesCount > 20) {
+    for (let i = 1; i <= 20; i++) {
       pages.push(i);
     }
   } else {
@@ -36,8 +37,10 @@ let Users = (props) => {
           <div key={u.id}>
             <div style={{display: 'inline-block'}}>
               <div>
-                <img src={u.photos.small != null ? u.photos.small : userPhoto} alt="avatar"
-                     className={style.userPhoto}/>
+                <NavLink to={'/profile/' + u.id}>
+                  <img src={u.photos.small != null ? u.photos.small : userPhoto} alt="avatar"
+                       className={style.userPhoto}/>
+                </NavLink>
               </div>
               <div>
                 {u.followed

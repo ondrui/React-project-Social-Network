@@ -1,4 +1,4 @@
-import {connect} from "react-redux";
+import {connect} from 'react-redux';
 import {
   follow,
   setCurrentPage,
@@ -6,11 +6,11 @@ import {
   setUsersTotalCount,
   toggleIsFetching,
   unfollow
-} from "../../redux/users-reducer";
-import React from "react";
-import axios from "axios";
-import Users from "./Users";
-import Preloader from "../common/Preloader/Preloader";
+} from '../../redux/users-reducer';
+import React from 'react';
+import axios from 'axios';
+import Users from './Users';
+import Preloader from '../common/Preloader/Preloader';
 
 class UsersContainer extends React.Component {
 
@@ -22,7 +22,6 @@ class UsersContainer extends React.Component {
         this.props.toggleIsFetching(false);
         this.props.setUsers(response.data.items);
         this.props.setUsersTotalCount(response.data.totalCount);
-
       });
   }
 

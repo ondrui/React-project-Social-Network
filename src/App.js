@@ -1,28 +1,28 @@
 import './App.css';
-import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
-import Profile from './components/Profile/Profile';
-import News from "./components/News/News";
-import Music from "./components/Music/Music";
-import Setting from "./components/Setting/Setting";
-import {Route} from "react-router-dom";
-import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import News from './components/News/News';
+import Music from './components/Music/Music';
+import Setting from './components/Setting/Setting';
+import {Route} from 'react-router-dom';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 import store from './redux/store';
-import UsersContainer from "./components/Users/UsersContainer";
+import UsersContainer from './components/Users/UsersContainer';
+import ProfileContainer from './components/Profile/ProfileContainer';
+import HeaderContainer from './components/Header/HeaderContainer';
 
 let state = store.getState();
 
 const App = () => {
   return (
     <div className='app-wrapper'>
-      <Header/>
+      <HeaderContainer/>
       <Navbar state={state.friendsList}/>
       <div className='app-wrapper-content'>
         <Route path='/dialogs'
                render={() => <DialogsContainer/>}
         />
-        <Route path='/profile'
-               render={() => <Profile/>}
+        <Route path='/profile/:userId?'
+               render={() => <ProfileContainer/>}
         />
         <Route exact path='/'
                render={() => <DialogsContainer/>}
