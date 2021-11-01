@@ -19,20 +19,25 @@ class UsersContainer extends React.Component {
     axios
       .get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
       .then(response => {
+        //console.log(this.props);
         this.props.toggleIsFetching(false);
         this.props.setUsers(response.data.items);
         this.props.setUsersTotalCount(response.data.totalCount);
+        //console.log(this.props);
       });
   }
 
+  //отобразить другую страницу с пользователями
   onPageChanged = (pageNumber) => {
     this.props.setCurrentPage(pageNumber);
     this.props.toggleIsFetching(true);
     axios
       .get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
       .then(response => {
+        //console.log(this.props);
         this.props.toggleIsFetching(false);
-        this.props.setUsers(response.data.items)
+        this.props.setUsers(response.data.items);
+        //console.log(this.props);
       });
   }
 

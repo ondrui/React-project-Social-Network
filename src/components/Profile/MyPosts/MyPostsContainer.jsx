@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 
 let mapStateToProps = (state) => {
   return {
+    //что передается в props - аргументы какие и отслеживаются изменения в этих свойствах
     posts: state.profilePage.posts,
     newPostText: state.profilePage.newPostText
   }
@@ -12,6 +13,7 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
   return {
+    //колбеки передаются через props
     updateNewPostText: (text) => {
       let action = updateNewPostTextActionCreator(text);
       dispatch(action);
